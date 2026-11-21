@@ -230,6 +230,7 @@ const tableNameInput = document.getElementById("tableName");
 const generateBtn = document.getElementById("generateBtn");
 const ddlOutput = document.getElementById("ddlOutput");
 const copyBtn = document.getElementById("copyBtn");
+const downloadBtn = document.getElementById("downloadBtn");
 const copyMsg = document.getElementById("copyMsg");
 const errorMsg = document.getElementById("errorMsg");
 const fileInput = document.getElementById("fileInput");
@@ -316,4 +317,18 @@ copyBtn.addEventListener("click", async () => {
   }
   copyMsg.hidden = false;
   setTimeout(() => (copyMsg.hidden = true), 1500);
+});
+
+downloadBtn.addEventListener("click", () => {
+  if (!ddlOutput.value) return;
+  const filename = sanitizeTableName(tableNameInput.value) + ".sql";
+  const blob = new Blob([ddlOutput.value], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 });

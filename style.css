@@ -44,6 +44,13 @@ header h1 {
   letter-spacing: -0.02em;
 }
 
+.privacy-note {
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
 .tagline {
   color: var(--text-dim);
   margin: 0 0 1.5rem;
@@ -88,6 +95,11 @@ main {
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .dropzone {

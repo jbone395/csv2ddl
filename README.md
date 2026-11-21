@@ -17,7 +17,8 @@ August 2025. There's no current free incumbent.)
 2. Paste CSV text into the box, or drag & drop / choose a `.csv` file.
 3. Optionally edit the table name.
 4. Click **Generate DDL**.
-5. Click **Copy to clipboard** to grab the `CREATE TABLE` statement.
+5. Click **Copy to clipboard** to grab the `CREATE TABLE` statement, or
+   **Download .sql** to save it as a `.sql` file.
 
 ## Dialect
 

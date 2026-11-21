@@ -11,7 +11,8 @@
   <div class="wrap">
     <header>
       <h1>csv2ddl</h1>
-      <p class="tagline">Paste a CSV, get a Postgres <code>CREATE TABLE</code> statement. Runs entirely in your browser — nothing is uploaded anywhere.</p>
+      <p class="privacy-note">Runs 100% in your browser — nothing is uploaded or sent anywhere.</p>
+      <p class="tagline">Paste a CSV, get a Postgres <code>CREATE TABLE</code> statement.</p>
     </header>
 
     <main>
@@ -41,7 +42,10 @@
       <section class="panel">
         <div class="panel-header">
           <h2>2. Generated DDL</h2>
-          <button id="copyBtn" type="button">Copy to clipboard</button>
+          <div class="btn-group">
+            <button id="copyBtn" type="button">Copy to clipboard</button>
+            <button id="downloadBtn" type="button">Download .sql</button>
+          </div>
         </div>
         <textarea id="ddlOutput" readonly placeholder="Your CREATE TABLE statement will appear here..." spellcheck="false"></textarea>
         <p id="copyMsg" class="hint" hidden>Copied!</p>
