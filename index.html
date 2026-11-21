@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>csv2ddl — CSV to Postgres CREATE TABLE</title>
+<meta name="description" content="Free, client-side tool that turns a CSV file into a Postgres CREATE TABLE statement. No upload, no backend, no signup.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>csv2ddl</h1>
+      <p class="tagline">Paste a CSV, get a Postgres <code>CREATE TABLE</code> statement. Runs entirely in your browser — nothing is uploaded anywhere.</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <h2>1. Input CSV</h2>
+          <label class="file-btn">
+            Choose file
+            <input type="file" id="fileInput" accept=".csv,text/csv" hidden>
+          </label>
+        </div>
+
+        <div id="dropzone" class="dropzone">
+          <textarea id="csvInput" placeholder="Paste CSV text here, or drag & drop a .csv file onto this box..." spellcheck="false"></textarea>
+          <div class="dropzone-overlay" id="dropOverlay">Drop CSV file to load it</div>
+        </div>
+
+        <div class="row">
+          <label for="tableName">Table name</label>
+          <input type="text" id="tableName" value="my_table">
+        </div>
+
+        <button id="generateBtn" class="primary">Generate DDL</button>
+        <p id="errorMsg" class="error" hidden></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>2. Generated DDL</h2>
+          <button id="copyBtn" type="button">Copy to clipboard</button>
+        </div>
+        <textarea id="ddlOutput" readonly placeholder="Your CREATE TABLE statement will appear here..." spellcheck="false"></textarea>
+        <p id="copyMsg" class="hint" hidden>Copied!</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Postgres dialect only, v1. See <a href="README.md">README</a> for known limitations. No data leaves your browser.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
